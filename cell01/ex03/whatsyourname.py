@@ -1,3 +1,4 @@
-frist_name = input("First name: ")
+first_name = input("First name: ")
 last_name = input("Surname: ")
-print(frist_name, last_name)
+print(f"Hello {first_name} {last_name}, it's a pleasure to meet you!")
+
