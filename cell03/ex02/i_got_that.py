@@ -1,7 +1,5 @@
 while True:
-    user_input = input("Enter something (type 'STOP' to quit): ")
+    prompt = "What you gotta say? : " if 'user_input' not in locals() else "I got that! Anything else? : "
+    user_input = input(prompt)
     if user_input == "STOP":
-        print("Program stopped.")
         break
-    else:
-        print("You said:", user_input)
