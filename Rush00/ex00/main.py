@@ -10,16 +10,40 @@ def display_menu():
 def add_task(tasks):
     category = input("Enter task category (watering/spraying/harvesting/animals): ").strip().lower()
     description = input("Enter task description: ").strip()
-    day = input("Enter day : ").strip()
-    month = input("Enter month : ").strip()
-    year = input("Enter year  ").strip()
-    time = input("Enter time : ").strip()
+
+    while True:
+        day = input("Enter day (1–31): ").strip()
+        if day.isdigit() and 1 <= int(day) <= 31:
+            break
+        print("❌ Please enter a valid day (1–31).")
+
+    while True:
+        month = input("Enter month (1–12): ").strip()
+        if month.isdigit() and 1 <= int(month) <= 12:
+            break
+        print("❌ Please enter a valid month (1–12).")
+
+    while True:
+        year = input("Enter year (e.g. 2025): ").strip()
+        if year.isdigit() and len(year) == 4:
+            break
+        print("❌ Please enter a valid 4-digit year (e.g. 2025).")
+
+    while True:
+        time = input("Enter time (HH:MM): ").strip()
+        if ":" in time:
+            parts = time.split(":")
+            if len(parts) == 2 and all(p.isdigit() for p in parts):
+                hour, minute = int(parts[0]), int(parts[1])
+                if 0 <= hour <= 23 and 0 <= minute <= 59:
+                    break
+        print("❌ Please enter valid time format (HH:MM, e.g. 14:30).")
 
     tasks.append({
         'category': category,
         'description': description,
-        'day': day,
-        'month': month,
+        'day': day.zfill(2),
+        'month': month.zfill(2),
         'year': year,
         'time': time
     })
