@@ -6,7 +6,6 @@ def main():
         return
 
     param = sys.argv[1]
-    # รับ input จากผู้ใช้
     answer = input("What was the parameter? ")
 
     if answer == param:
